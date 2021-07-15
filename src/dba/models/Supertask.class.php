@@ -14,8 +14,8 @@ class Supertask extends AbstractModel {
   private $finish_time;
   private $result;
   
-  function __construct($supertaskId, $supertaskName, $priority, $pmsn_count, $status,
-  $percent, $algorithm_code, $create_time, $finish_time, $result) {
+  function __construct($supertaskId, $supertaskName, $priority = 1, $pmsn_count = 8, $status = "running",
+  $percent = 10, $algorithm_code = 1000, $create_time = 10, $finish_time = 20, $result = "file") {
     $this->supertaskId = $supertaskId;
     $this->supertaskName = $supertaskName;
     $this->priority = $priority;
@@ -109,12 +109,12 @@ class Supertask extends AbstractModel {
   
   const SUPERTASK_ID = "supertaskId";
   const SUPERTASK_NAME = "supertaskName";
-  const PRIORITY = "priority";
-  const PMSN_COUNT = "pmsn_count";
-  const STATUS = "status";
-  const PERCENT = "percent";
-  const ALGORITHM_CODE = "algorithm_code";
-  const CREATE_TIME = "create_time";
-  const FINISH_TIME = "finish_time";
-  const RESULT = "result";
+  const SUPERTASK_PRIORITY = "priority";
+  const SUPERTASK_PMSN_COUNT = "pmsn_count";
+  const SUPERTASK_STATUS = "status";
+  const SUPERTASK_PERCENT = "percent";
+  const SUPERTASK_ALGORITHM_CODE = "algorithm_code";
+  const SUPERTASK_CREATE_TIME = "create_time";
+  const SUPERTASK_FINISH_TIME = "finish_time";
+  const SUPERTASK_RESULT = "result";
 }

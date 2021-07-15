@@ -153,13 +153,14 @@ class UserAPISupertask extends UserAPIBasic {
       UResponseTask::RESPONSE => UValues::OK,
       UResponseTask::SUPERTASK_ID => (int)$supertask->getId(),
       UResponseTask::SUPERTASK_NAME => $supertask->getSupertaskName(),
-      UResponseTask::PMSN_COUNT => $supertask->getPmsnCount(),
-      UResponseTask::STATUS => $supertask->getStatus(),
-      UResponseTask::PERCENT => $supertask->getPercent(),
-      UResponseTask::ALGORITHM_CODE => $supertask->getAlgoCode(),
-      UResponseTask::CREATE_TIME => $supertask->getCreateTime(),
-      UResponseTask::FINISH_TIME => $supertask->getFinishTime(),
-      UResponseTask::RESULT => $supertask->getResult()
+      UResponseTask::SUPERTASK_PRIORITY => $supertask->getPriority(),
+      UResponseTask::SUPERTASK_PMSN_COUNT => $supertask->getPmsnCount(),
+      UResponseTask::SUPERTASK_STATUS => $supertask->getStatus(),
+      UResponseTask::SUPERTASK_PERCENT => $supertask->getPercent(),
+      UResponseTask::SUPERTASK_ALGORITHM_CODE => $supertask->getAlgoCode(),
+      UResponseTask::SUPERTASK_CREATE_TIME => $supertask->getCreateTime(),
+      UResponseTask::SUPERTASK_FINISH_TIME => $supertask->getFinishTime(),
+      UResponseTask::SUPERTASK_RESULT => $supertask->getResult()
     ];
     foreach ($pretasks as $pretask) {
       $taskList[] = [

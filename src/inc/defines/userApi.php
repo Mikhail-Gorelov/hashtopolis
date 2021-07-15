@@ -306,6 +306,14 @@ class UResponseTask extends UResponse {
   
   const SUPERTASK_ID   = "supertaskId";
   const SUPERTASK_NAME = "name";
+  const SUPERTASK_PRIORITY = "priority";
+  const SUPERTASK_PMSN_COUNT = "pmsn_count";
+  const SUPERTASK_STATUS = "status";
+  const SUPERTASK_PERCENT = "percent";
+  const SUPERTASK_ALGORITHM_CODE = "algorithm_code";
+  const SUPERTASK_CREATE_TIME = "create_time";
+  const SUPERTASK_FINISH_TIME = "finish_time";
+  const SUPERTASK_RESULT = "result";
   
   const CHUNK_ID         = "chunkId";
   const CHUNK_START      = "start";
