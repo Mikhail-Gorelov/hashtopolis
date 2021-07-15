@@ -152,7 +152,14 @@ class UserAPISupertask extends UserAPIBasic {
       UResponseTask::REQUEST => $QUERY[UQueryTask::REQUEST],
       UResponseTask::RESPONSE => UValues::OK,
       UResponseTask::SUPERTASK_ID => (int)$supertask->getId(),
-      UResponseTask::SUPERTASK_NAME => $supertask->getSupertaskName()
+      UResponseTask::SUPERTASK_NAME => $supertask->getSupertaskName(),
+      UResponseTask::PMSN_COUNT => $supertask->getPmsnCount(),
+      UResponseTask::STATUS => $supertask->getStatus(),
+      UResponseTask::PERCENT => $supertask->getPercent(),
+      UResponseTask::ALGORITHM_CODE => $supertask->getAlgoCode(),
+      UResponseTask::CREATE_TIME => $supertask->getCreateTime(),
+      UResponseTask::FINISH_TIME => $supertask->getFinishTime(),
+      UResponseTask::RESULT => $supertask->getResult()
     ];
     foreach ($pretasks as $pretask) {
       $taskList[] = [

@@ -54,6 +54,14 @@ class UQueryTask extends UQuery {
   const AGENT_ID           = "agentId";
   const SUPERTASK_PRIORITY = "supertaskPriority";
   const SUPERTASK_NAME     = "name";
+  const PRIORITY = "priority";
+  const PMSN_COUNT = "pmsn_count";
+  const STATUS = "status";
+  const PERCENT = "percent";
+  const ALGORITHM_CODE = "algorithm_code";
+  const CREATE_TIME = "create_time";
+  const FINISH_TIME = "finish_time";
+  const RESULT = "result";
   const TASK_BASEFILES     = "basefiles";
   const TASK_ITERFILES     = "iterfiles";
   
