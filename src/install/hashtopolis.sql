@@ -695,7 +695,17 @@ CREATE TABLE `Pretask` (
   `searched`            INT(11)      NOT NULL,
   `chunkIds`            VARCHAR(20)  NOT NULL,
   `agents`              VARCHAR(20)  NOT NULL,
-  `isComplete`          INT(2)       NOT NULL
+  `isComplete`          INT(2)       NOT NULL,
+  `hashlistId`          INT(11)      NOT NULL,
+  `image`               INT(11)      NOT NULL,
+  `agents_id`           INT(11)      NOT NULL,
+  `agents_benchmark`    INT(11)      NOT NULL,
+  `agents_speed`        INT(11)      NOT NULL,
+  `chunks`              INT(11)      NOT NULL,
+  `use_preprocessor`    INT(11)      NOT NULL,
+  `preprocessor_id`     INT(11)      NOT NULL,
+  `preprocessor_command` INT(11)     NOT NULL,
+  `preprocessor_speed`  INT(11)      NOT NULL
 ) ENGINE = InnoDB;
 
 CREATE TABLE `RegVoucher` (

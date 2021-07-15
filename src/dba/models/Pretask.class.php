@@ -33,8 +33,22 @@ class Pretask extends AbstractModel {
   private $chunkIds;
   private $agents;
   private $isComplete;
+  private $hashlist;
+  private $image;
+  private $agents_id;
+  private $agents_benchmark;
+  private $agents_speed;
+  private $chunks;
+  private $use_preprocessor;
+  private $preprocessor_id;
+  private $preprocessor_command;
+  private $skip;
   
-  function __construct($pretaskId, $taskName, $attackCmd, $chunkTime, $statusTimer, $color, $isSmall, $isCpuTask, $useNewBench, $priority, $isMaskImport, $crackerBinaryTypeId) {
+  function __construct($pretaskId, $taskName, $attackCmd, $chunkTime, $statusTimer, $color, $isSmall, $isCpuTask, $useNewBench, $priority, $isMaskImport, $crackerBinaryTypeId,
+  $createTime = 10, $status = 1, $end_time = 1, $pmsn_count = 1, $pmsn_adr = 1, $percent = 1, $chunkSize = 1, $benchmarkType = 1,
+  $skipKeyspace = 1, $skipKeyspace = 1, $keyspace = 1, $dispatched = 1,$hashlistId = 1, $files = 1, $speed = 1, $searched = 1,
+  $chunkIds = 1, $agents = 1, $isComplete = 1, $hashlist = 1, $image = 1, $agents_id = 1, $agents_benchmark = 1, $agents_speed = 1,
+  $chunks = 1, $use_preprocessor = 1, $preprocessor_id = 1, $preprocessor_command = 1, $skip = 1) {
     $this->pretaskId = $pretaskId;
     $this->taskName = $taskName;
     $this->attackCmd = $attackCmd;
@@ -47,24 +61,34 @@ class Pretask extends AbstractModel {
     $this->priority = $priority;
     $this->isMaskImport = $isMaskImport;
     $this->crackerBinaryTypeId = $crackerBinaryTypeId;
-    $this->createTime = time();
-    $this->status = "status";
-    $this->end_time = "10";
-    $this->pmsn_count = 8;
-    $this->pmsn_adr = "lala";
-    $this->percent = 99;
-    $this->chunkSize = 100;
-    $this->benchmarkType = "Type";
-    $this->skipKeyspace = 10;
-    $this->keyspace = 10;
-    $this->dispatched = 10;
-    $this->hashlistId = 1;
-    $this->files = "file";
-    $this->speed = 10;
-    $this->searched = 100;
-    $this->chunkIds = "10";
-    $this->agents = "La";
-    $this->isComplete = 0;
+    $this->createTime = $createTime;
+    $this->status = $status;
+    $this->end_time = $end_time;
+    $this->pmsn_count = $pmsn_count;
+    $this->pmsn_adr = $pmsn_adr;
+    $this->percent = $percent;
+    $this->chunkSize = $chunkSize;
+    $this->benchmarkType = $benchmarkType;
+    $this->skipKeyspace = $skipKeyspace;
+    $this->keyspace = $keyspace;
+    $this->dispatched = $dispatched;
+    $this->hashlistId = $hashlistId;
+    $this->files = $files;
+    $this->speed = $speed;
+    $this->searched = $searched;
+    $this->chunkIds = $chunkIds;
+    $this->agents = $agents;
+    $this->isComplete = $isComplete;
+    $this->hashlist = $hashlist;
+    $this->image = $image;
+    $this->agents_id = $agents_id;
+    $this->agents_benchmark = $agents_benchmark;
+    $this->agents_speed = $agents_speed;
+    $this->chunks = $chunks;
+    $this->use_preprocessor = $use_preprocessor;
+    $this->preprocessor_id = $preprocessor_id;
+    $this->preprocessor_command = $preprocessor_command;
+    $this->skip = $skip;
   }
   
   function getKeyValueDict() {
@@ -99,11 +123,21 @@ class Pretask extends AbstractModel {
     $dict['chunkIds'] = $this->chunkIds;
     $dict['agents'] = $this->agents;
     $dict['isComplete'] = $this->isComplete;
+    $dict['hashlist'] = $this->hashlist;
+    $dict['image'] = $this->image;
+    $dict['agents_id'] = $this->agents_id;
+    $dict['agents_benchmark'] = $this->agents_benchmark;
+    $dict['agents_speed'] = $this->agents_speed;
+    $dict['chunks'] = $this->chunks;
+    $dict['use_preprocessor'] = $this->use_preprocessor;
+    $dict['preprocessor_id'] = $this->preprocessor_id;
+    $dict['preprocessor_command'] = $this->preprocessor_command;
+    $dict['skip'] = $this->skip;
     
     return $dict;
   }
 
-
+  //TODO WRITE FUNCTIONS
   function getStatus() {
       return $this->status;
   }
@@ -286,35 +320,45 @@ class Pretask extends AbstractModel {
   function getCreateTime(){
       return $this->createTime;
   }
-  
-  const PRETASK_ID = "pretaskId";
-  const TASK_NAME = "taskName";
-  const ATTACK_CMD = "attackCmd";
-  const CHUNK_TIME = "chunkTime";
-  const STATUS_TIMER = "statusTimer";
-  const COLOR = "color";
-  const IS_SMALL = "isSmall";
-  const IS_CPU_TASK = "isCpuTask";
-  const USE_NEW_BENCH = "useNewBench";
-  const PRIORITY = "priority";
-  const IS_MASK_IMPORT = "isMaskImport";
-  const CRACKER_BINARY_TYPE_ID = "crackerBinaryTypeId";
-  const CREATE_TIME = "createTime";
-  const STATUS = "status";
-  const END_TIME = "end_time";
-  const PMSN_COUNT = "pmsn_count";
-  const PMSN_ADR = "pmsn_adr";
-  const PERCENT = "percent";
-  const CHUNK_SIZE = "chunk_size";
-  const BENCHMARK_TYPE = "benchmk_type";
-  const SKIP_KEYSPACE = "send_keyspace";
-  const KEYSPACE = "keyspace";
-  const DISPATCHED = "dispatched";
-  const HASHLIST_ID = "hashlist_id";
-  const FILES = "files";
-  const SPEED = "speed";
-  const SEARCHED = "searched";
-  const CHUNKIDS = "chunk_ids";
-  const AGENTS = "agents";
-  const IS_COMPLETE = "is_complete";
+
+  const PRETASK_ID         = "pretaskId";
+  const PRETASK_NAME       = "name";
+  const PRETASK_ATTACK     = "attackCmd";
+  const PRETASK_CHUNKSIZE  = "chunksize";
+  const PRETASK_COLOR      = "color";
+  const PRETASK_BENCH_TYPE = "benchmarkType";
+  const PRETASK_STATUS     = "statusTimer";
+  const PRETASK_PRIORITY   = "priority";
+  const PRETASK_CPU_ONLY   = "isCpuOnly";
+  const PRETASK_SMALL      = "isSmall";
+  const PRETASK_FILES      = "files";
+  const PRETASK_FILES_ID   = "fileId";
+  const PRETASK_FILES_NAME = "filename";
+  const PRETASK_FILES_SIZE = "size";
+  const PRETASK_SKIP                 = "skipKeyspace";
+  const PRETASK_KEYSPACE             = "keyspace";
+  const PRETASK_DISPATCHED           = "dispatched";
+  const PRETASK_SEARCHED             = "searched";
+  const PRETASK_SPEED                = "speed";
+  const PRETASK_HASHLIST             = "hashlistId";
+  const PRETASK_IMAGE                = "imageUrl";
+  const PRETASK_AGENTS               = "agents";
+  const PRETASK_AGENTS_ID            = "agentId";
+  const PRETASK_AGENTS_BENCHMARK     = "benchmark";
+  const PRETASK_AGENTS_SPEED         = "speed";
+  const PRETASK_CHUNKS               = "chunkIds";
+  const PRETASK_USE_PREPROCESSOR     = "usePreprocessor";
+  const PRETASK_PREPROCESSOR_ID      = "preprocessorId";
+  const PRETASK_PREPROCESSOR_COMMAND = "preprocessorCommand";
+  const PRETASK_CREATE_TIME               = "create_time";
+  const PRETASK_END_TIME = "end_time";
+  const PRETASK_PMSN_COUNT = "pmsn_count";
+  const PRETASK_PMSN_ADR = "pmsn_adr";
+  const PRETASK_PERCENT = "percent";
+  const PRETASK_CHUNK_SIZE = "chunk_size";
+  const PRETASK_BENCHMARK_TYPE = "benchmk_type";
+  const PRETASK_SKIP_KEYSPACE = "send_keyspace";
+  const PRETASK_HASHLIST_ID = "hashlist_id";
+  const PRETASK_CHUNKIDS = "chunk_ids";
+  const PRETASK_IS_COMPLETE = "is_complete";
 }
