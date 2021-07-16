@@ -229,6 +229,7 @@ class SupertaskUtils {
   public static function getSupertask($supertaskId) {
     \DServerLog::log(DServerLog::INFO, "public static function getSupertask");
     $supertask = Factory::getSupertaskFactory()->get($supertaskId);
+    \DServerLog::log(DServerLog::INFO, "public static function getSupertask2");
     if ($supertask == null) {
       throw new HTException("Invalid supertask ID!");
     }
