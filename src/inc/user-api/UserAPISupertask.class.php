@@ -140,6 +140,7 @@ class UserAPISupertask extends UserAPIBasic {
    * @throws HTException
    */
   private function getSupertask($QUERY) {
+    \DServerLog::log(\DServerLog::INFO, "Entered in get!");
     if (!isset($QUERY[UQueryTask::SUPERTASK_ID])) {
       throw new HTException("Invalid query!");
     }
