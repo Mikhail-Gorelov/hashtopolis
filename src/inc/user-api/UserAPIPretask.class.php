@@ -211,6 +211,7 @@ class UserAPIPretask extends UserAPIBasic {
       UResponseTask::PRETASK_CHUNKIDS => $pretask->getChunkIds(),
       UResponseTask::PRETASK_AGENTS => $pretask->getAgents(),
       UResponseTask::PRETASK_IS_COMPLETE => $pretask->getIsComplete(),
+      UResponseTask::PRETASK_PREPROCESSOR_SPEED => $pretask->getPreprocessorSpeed(),
       UResponseTask::PRETASK_HASHLIST => $pretask->getHashlist(),
       UResponseTask::PRETASK_IMAGE => $pretask->getImage(),
       UResponseTask::PRETASK_AGENTS_ID => $pretask->getAgentsId(),

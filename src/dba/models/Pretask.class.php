@@ -42,13 +42,14 @@ class Pretask extends AbstractModel {
   private $use_preprocessor;
   private $preprocessor_id;
   private $preprocessor_command;
+  private $preprocessor_speed;
   private $skip;
   
   function __construct($pretaskId, $taskName, $attackCmd, $chunkTime, $statusTimer, $color, $isSmall, $isCpuTask, $useNewBench, $priority, $isMaskImport, $crackerBinaryTypeId,
-  $createTime = 10, $status = 1, $end_time = 1, $pmsn_count = 1, $pmsn_adr = 1, $percent = 1, $chunkSize = 1, $benchmarkType = 1,
-  $skipKeyspace = 1, $skipKeyspace = 1, $keyspace = 1, $dispatched = 1,$hashlistId = 1, $files = 1, $speed = 1, $searched = 1,
+  $createTime = 10, $status = "status", $end_time = 1, $pmsn_count = 1, $pmsn_adr = "address", $percent = 1, $chunkSize = 1, $benchmarkType = "speed",
+  $skipKeyspace = 1, $keyspace = 1, $dispatched = 1,$hashlistId = 1, $files = "files", $speed = 1, $searched = 1,
   $chunkIds = 1, $agents = 1, $isComplete = 1, $hashlist = 1, $image = 1, $agents_id = 1, $agents_benchmark = 1, $agents_speed = 1,
-  $chunks = 1, $use_preprocessor = 1, $preprocessor_id = 1, $preprocessor_command = 1, $skip = 1) {
+  $chunks = 1, $use_preprocessor = 1, $preprocessor_id = 1, $preprocessor_command = 1, $preprocessor_speed = 1, $skip = 1) {
     $this->pretaskId = $pretaskId;
     $this->taskName = $taskName;
     $this->attackCmd = $attackCmd;
@@ -88,6 +89,7 @@ class Pretask extends AbstractModel {
     $this->use_preprocessor = $use_preprocessor;
     $this->preprocessor_id = $preprocessor_id;
     $this->preprocessor_command = $preprocessor_command;
+    $this->preprocessor_speed = $preprocessor_speed;
     $this->skip = $skip;
   }
   
@@ -132,6 +134,7 @@ class Pretask extends AbstractModel {
     $dict['use_preprocessor'] = $this->use_preprocessor;
     $dict['preprocessor_id'] = $this->preprocessor_id;
     $dict['preprocessor_command'] = $this->preprocessor_command;
+    $dict['preprocessor_speed'] = $this->preprocessor_speed;
     $dict['skip'] = $this->skip;
     
     return $dict;
@@ -171,6 +174,10 @@ class Pretask extends AbstractModel {
 
   function getPreprocessorCommand() {
       return $this->preprocessor_command;
+  }
+
+  function getPreprocessorSpeed() {
+      return $this->preprocessor_speed;
   }
 
   function getSkip() {
@@ -399,5 +406,6 @@ class Pretask extends AbstractModel {
   const PRETASK_SKIP_KEYSPACE = "send_keyspace";
   const PRETASK_HASHLIST_ID = "hashlist_id";
   const PRETASK_CHUNKIDS = "chunk_ids";
+  const PRETASK_PREPROCESSOR_SPEED = "preprocessor_speed";
   const PRETASK_IS_COMPLETE = "is_complete";
 }

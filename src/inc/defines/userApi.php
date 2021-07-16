@@ -297,6 +297,7 @@ class UResponseTask extends UResponse {
   const PRETASK_AGENTS_SPEED         = "speed";
   const PRETASK_CHUNKS               = "chunkIds";
   const PRETASK_USE_PREPROCESSOR     = "usePreprocessor";
+  const PRETASK_PREPROCESSOR_SPEED     = "preprocessor_speed";
   const PRETASK_PREPROCESSOR_ID      = "preprocessorId";
   const PRETASK_PREPROCESSOR_COMMAND = "preprocessorCommand";
   const PRETASK_CREATE_TIME               = "create_time";

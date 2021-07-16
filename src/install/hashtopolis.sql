@@ -680,7 +680,7 @@ CREATE TABLE `Pretask` (
   `crackerBinaryTypeId` INT(11)      NOT NULL,
   `createTime`          INT(11)      NOT NULL,
   `status`              VARCHAR(100) NOT NULL,
-  `end_time`            VARCHAR(100) NOT NULL,
+  `end_time`            INT(11) NOT NULL,
   `pmsn_count`          INT(11)      NOT NULL,
   `pmsn_adr`            VARCHAR(100) NOT NULL,
   `percent`             INT(11)      NOT NULL,
@@ -693,10 +693,10 @@ CREATE TABLE `Pretask` (
   `files`               VARCHAR(11)  NOT NULL,
   `speed`               INT(11)      NOT NULL,
   `searched`            INT(11)      NOT NULL,
-  `chunkIds`            VARCHAR(20)  NOT NULL,
-  `agents`              VARCHAR(20)  NOT NULL,
+  `chunkIds`            INT(10)  NOT NULL,
+  `agents`              INT(10)  NOT NULL,
   `isComplete`          INT(2)       NOT NULL,
-  `hashlistId`          INT(11)      NOT NULL,
+  `hashlist`          INT(11)      NOT NULL,
   `image`               INT(11)      NOT NULL,
   `agents_id`           INT(11)      NOT NULL,
   `agents_benchmark`    INT(11)      NOT NULL,
@@ -705,7 +705,8 @@ CREATE TABLE `Pretask` (
   `use_preprocessor`    INT(11)      NOT NULL,
   `preprocessor_id`     INT(11)      NOT NULL,
   `preprocessor_command` INT(11)     NOT NULL,
-  `preprocessor_speed`  INT(11)      NOT NULL
+  `preprocessor_speed`  INT(11)      NOT NULL,
+  `skip`                INT(11)      NOT NULL
 ) ENGINE = InnoDB;
 
 CREATE TABLE `RegVoucher` (
