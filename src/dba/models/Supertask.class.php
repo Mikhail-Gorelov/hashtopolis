@@ -26,7 +26,7 @@ class Supertask extends AbstractModel {
     $this->create_time = $create_time;
     $this->finish_time = $finish_time;
     $this->result = $result;
-    \DServerLog::log(\DServerLog::INFO, "Create new Supertask(construct) with $result ", [$result]);
+    DServerLog::log(\DServerLog::INFO, "Create new Supertask(construct) with $result ", [$result]);
   }
   
   function getKeyValueDict() {

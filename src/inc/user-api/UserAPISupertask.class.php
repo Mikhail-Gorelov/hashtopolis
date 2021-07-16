@@ -140,17 +140,17 @@ class UserAPISupertask extends UserAPIBasic {
    * @throws HTException
    */
   private function getSupertask($QUERY) {
-    \DServerLog::log(\DServerLog::INFO, "Entered in get!");
+    DServerLog::log(DServerLog::INFO, "Entered in get!");
     if (!isset($QUERY[UQueryTask::SUPERTASK_ID])) {
       throw new HTException("Invalid query!");
     }
-    \DServerLog::log(\DServerLog::INFO, "Enter in SupertaskUtils getSupertask");
+    DServerLog::log(DServerLog::INFO, "Enter in SupertaskUtils getSupertask");
     $supertask = SupertaskUtils::getSupertask($QUERY[UQueryTask::SUPERTASK_ID]);
-    \DServerLog::log(\DServerLog::INFO, "Out of SupertaskUtils getSupertask");
+    DServerLog::log(DServerLog::INFO, "Out of SupertaskUtils getSupertask");
 
-    \DServerLog::log(\DServerLog::INFO, "Enter in SupertaskUtils getPretasksofSupertasks");
+    DServerLog::log(DServerLog::INFO, "Enter in SupertaskUtils getPretasksofSupertasks");
     $pretasks = SupertaskUtils::getPretasksOfSupertask($supertask->getId());
-    \DServerLog::log(\DServerLog::INFO, "Out of SupertaskUtils getPretasksOfSupertask");
+    DServerLog::log(DServerLog::INFO, "Out of SupertaskUtils getPretasksOfSupertask");
     
     $taskList = array();
     $response = [
