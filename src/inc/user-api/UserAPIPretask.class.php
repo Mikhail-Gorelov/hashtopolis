@@ -221,7 +221,10 @@ class UserAPIPretask extends UserAPIBasic {
       UResponseTask::PRETASK_USE_PREPROCESSOR => $pretask->getUsePreprocessor(),
       UResponseTask::PRETASK_PREPROCESSOR_ID => $pretask->getPreprocessorId(),
       UResponseTask::PRETASK_PREPROCESSOR_COMMAND => $pretask->getPreprocessorCommand(),
-      UResponseTask::PRETASK_SKIP => $pretask->getSkip()
+      UResponseTask::PRETASK_SKIP => $pretask->getSkip(),
+      UResponseTask::PRETASK_ALGORITHM_CODE => $pretask->getAlgorithmCode(),
+      UResponseTask::PRETASK_RESULT => $pretask->getResult(),
+      UResponseTask::PRETASK_ACTUAL_PMSN => $pretask->getActualPmsn()
     ];
     
     $files = TaskUtils::getFilesOfPretask($pretask);

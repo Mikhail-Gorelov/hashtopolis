@@ -299,6 +299,9 @@ class UResponseTask extends UResponse {
   const PRETASK_USE_PREPROCESSOR     = "usePreprocessor";
   const PRETASK_PREPROCESSOR_SPEED     = "preprocessor_speed";
   const PRETASK_PREPROCESSOR_ID      = "preprocessorId";
+  const PRETASK_ALGORITHM_CODE = "algorithm_code";
+  const PRETASK_RESULT = "result";
+  const PRETASK_ACTUAL_PMSN = "actual_pmsn";
   const PRETASK_PREPROCESSOR_COMMAND = "preprocessorCommand";
   const PRETASK_CREATE_TIME               = "create_time";
   const PRETASK_END_TIME = "end_time";

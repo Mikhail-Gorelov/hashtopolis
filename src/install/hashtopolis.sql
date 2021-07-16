@@ -706,7 +706,10 @@ CREATE TABLE `Pretask` (
   `preprocessor_id`     INT(11)      NOT NULL,
   `preprocessor_command` INT(11)     NOT NULL,
   `preprocessor_speed`  INT(11)      NOT NULL,
-  `skip`                INT(11)      NOT NULL
+  `skip`                INT(11)      NOT NULL,
+  `algorithm_code`      VARCHAR(11)  NOT NULL,
+  `result`              VARCHAR(11)  NOT NULL,
+  `actual_pmsn`         INT(11)      NOT NULL
 ) ENGINE = InnoDB;
 
 CREATE TABLE `RegVoucher` (
