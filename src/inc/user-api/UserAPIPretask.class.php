@@ -211,17 +211,16 @@ class UserAPIPretask extends UserAPIBasic {
       UResponseTask::PRETASK_CHUNKIDS => $pretask->getChunkIds(),
       UResponseTask::PRETASK_AGENTS => $pretask->getAgents(),
       UResponseTask::PRETASK_IS_COMPLETE => $pretask->getIsComplete(),
-        // TODO WRITE FUNCTIONS
-      UResponseTask::PRETASK_HASHLIST => $pretask->getIsComplete(),
-      UResponseTask::PRETASK_IMAGE => $pretask->getIsComplete(),
-      UResponseTask::PRETASK_AGENTS_ID => $pretask->getIsComplete(),
-      UResponseTask::PRETASK_AGENTS_BENCHMARK => $pretask->getIsComplete(),
-      UResponseTask::PRETASK_AGENTS_SPEED => $pretask->getIsComplete(),
-      UResponseTask::PRETASK_CHUNKS => $pretask->getIsComplete(),
-      UResponseTask::PRETASK_USE_PREPROCESSOR => $pretask->getIsComplete(),
-      UResponseTask::PRETASK_PREPROCESSOR_ID => $pretask->getIsComplete(),
-      UResponseTask::PRETASK_PREPROCESSOR_COMMAND => $pretask->getIsComplete(),
-      UResponseTask::PRETASK_SKIP => $pretask->getIsComplete()
+      UResponseTask::PRETASK_HASHLIST => $pretask->getHashlist(),
+      UResponseTask::PRETASK_IMAGE => $pretask->getImage(),
+      UResponseTask::PRETASK_AGENTS_ID => $pretask->getAgentsId(),
+      UResponseTask::PRETASK_AGENTS_BENCHMARK => $pretask->getAgentsBenchmark(),
+      UResponseTask::PRETASK_AGENTS_SPEED => $pretask->getAgentsSpeed(),
+      UResponseTask::PRETASK_CHUNKS => $pretask->getChunks(),
+      UResponseTask::PRETASK_USE_PREPROCESSOR => $pretask->getUsePreprocessor(),
+      UResponseTask::PRETASK_PREPROCESSOR_ID => $pretask->getPreprocessorId(),
+      UResponseTask::PRETASK_PREPROCESSOR_COMMAND => $pretask->getPreprocessorCommand(),
+      UResponseTask::PRETASK_SKIP => $pretask->getSkip()
     ];
     
     $files = TaskUtils::getFilesOfPretask($pretask);

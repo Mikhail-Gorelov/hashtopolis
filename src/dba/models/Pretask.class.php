@@ -137,7 +137,46 @@ class Pretask extends AbstractModel {
     return $dict;
   }
 
-  //TODO WRITE FUNCTIONS
+  function getHashlist() {
+      return $this->hashlist;
+  }
+
+  function getImage() {
+      return $this->image;
+  }
+
+  function getAgentsId() {
+      return $this->agents_id;
+  }
+
+  function getAgentsBenchmark() {
+      return $this->agents_benchmark;
+  }
+
+  function getAgentsSpeed() {
+      return $this->agents_speed;
+  }
+
+  function getChunks() {
+      return $this->chunks;
+  }
+
+  function getUsePreprocessor() {
+      return $this->use_preprocessor;
+  }
+
+  function getPreprocessorId() {
+      return $this->preprocessor_id;
+  }
+
+  function getPreprocessorCommand() {
+      return $this->preprocessor_command;
+  }
+
+  function getSkip() {
+      return $this->skip;
+  }
+
   function getStatus() {
       return $this->status;
   }
