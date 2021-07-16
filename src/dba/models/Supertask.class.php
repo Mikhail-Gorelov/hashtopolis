@@ -14,7 +14,7 @@ class Supertask extends AbstractModel {
   private $finish_time;
   private $result;
   
-  function __construct($supertaskId, $supertaskName, $priority, $pmsn_count = 8, $status = "running",
+  function __construct($supertaskId, $supertaskName, $priority = 1, $pmsn_count = 8, $status = "running",
   $percent = 10, $algorithm_code = "md5", $create_time = 10, $finish_time = 20, $result = "file") {
     $this->supertaskId = $supertaskId;
     $this->supertaskName = $supertaskName;
