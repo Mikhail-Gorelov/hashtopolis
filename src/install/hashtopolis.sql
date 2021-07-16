@@ -757,7 +757,7 @@ CREATE TABLE `Supertask` (
   `pmsn_count`    INT(11)     NOT NULL,
   `status`        VARCHAR(11) NOT NULL,
   `percent`       INT(11)     NOT NULL,
-  `algorithm_code` INT(11)    NOT NULL,
+  `algorithm_code` VARCHAR(11)    NOT NULL,
   `create_time`   INT(11)     NOT NULL,
   `finish_time`   INT(11)     NOT NULL,
   `result`        VARCHAR(11)   NOT NULL
