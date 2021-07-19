@@ -140,17 +140,11 @@ class UserAPISupertask extends UserAPIBasic {
    * @throws HTException
    */
   private function getSupertask($QUERY) {
-    DServerLog::log(DServerLog::INFO, "Entered in get!");
     if (!isset($QUERY[UQueryTask::SUPERTASK_ID])) {
       throw new HTException("Invalid query!");
     }
-    \DServerLog::log(DServerLog::INFO, "Enter in SupertaskUtils getSupertask");
     $supertask = SupertaskUtils::getSupertask($QUERY[UQueryTask::SUPERTASK_ID]);
-    \DServerLog::log(DServerLog::INFO, "Out of SupertaskUtils getSupertask");
-
-    \DServerLog::log(DServerLog::INFO, "Enter in SupertaskUtils getPretasksofSupertasks");
     $pretasks = SupertaskUtils::getPretasksOfSupertask($supertask->getId());
-    \DServerLog::log(DServerLog::INFO, "Out of SupertaskUtils getPretasksOfSupertask");
     
     $taskList = array();
     $response = [
@@ -158,15 +152,7 @@ class UserAPISupertask extends UserAPIBasic {
       UResponseTask::REQUEST => $QUERY[UQueryTask::REQUEST],
       UResponseTask::RESPONSE => UValues::OK,
       UResponseTask::SUPERTASK_ID => (int)$supertask->getId(),
-      UResponseTask::SUPERTASK_NAME => $supertask->getSupertaskName(),
-      UResponseTask::SUPERTASK_PRIORITY => $supertask->getPriority(),
-      UResponseTask::SUPERTASK_PMSN_COUNT => $supertask->getPmsnCount(),
-      UResponseTask::SUPERTASK_STATUS => $supertask->getStatus(),
-      UResponseTask::SUPERTASK_PERCENT => $supertask->getPercent(),
-      UResponseTask::SUPERTASK_ALGORITHM_CODE => $supertask->getAlgoCode(),
-      UResponseTask::SUPERTASK_CREATE_TIME => $supertask->getCreateTime(),
-      UResponseTask::SUPERTASK_FINISH_TIME => $supertask->getFinishTime(),
-      UResponseTask::SUPERTASK_RESULT => $supertask->getResult()
+      UResponseTask::SUPERTASK_NAME => $supertask->getSupertaskName()
     ];
     foreach ($pretasks as $pretask) {
       $taskList[] = [

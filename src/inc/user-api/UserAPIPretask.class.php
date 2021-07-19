@@ -165,7 +165,10 @@ class UserAPIPretask extends UserAPIBasic {
       ($QUERY[UQueryTask::TASK_BENCHTYPE] == 'speed') ? 1 : 0,
       $QUERY[UQueryTask::TASK_FILES],
       $QUERY[UQueryTask::TASK_CRACKER_TYPE],
-      $priority
+      $priority,
+      $QUERY[UQueryTask::SBIS_COUNT],
+      $QUERY[UQueryTask::TASK_HASHLIST],
+      $QUERY[UQueryTask::ALGORITHM_CODE]
     );
     $this->sendSuccessResponse($QUERY);
   }
@@ -179,7 +182,7 @@ class UserAPIPretask extends UserAPIBasic {
       throw new HTException("Invalid query!");
     }
     $pretask = PretaskUtils::getPretask($QUERY[UQueryTask::PRETASK_ID]);
-    
+      DServerLog::log(\DServerLog::INFO, "get Pretask with", [$pretask->getSbisCount()]);
     $response = [
       UResponseTask::SECTION => $QUERY[UQueryTask::SECTION],
       UResponseTask::REQUEST => $QUERY[UQueryTask::REQUEST],
@@ -194,37 +197,14 @@ class UserAPIPretask extends UserAPIBasic {
       UResponseTask::PRETASK_PRIORITY => (int)$pretask->getPriority(),
       UResponseTask::PRETASK_CPU_ONLY => ($pretask->getIsCpuTask() == 1) ? true : false,
       UResponseTask::PRETASK_SMALL => ($pretask->getIsSmall() == 1) ? true : false,
-      UResponseTask::PRETASK_CREATE_TIME => $pretask->getCreateTime(),
-      UResponseTask::PRETASK_END_TIME => $pretask->getEndTime(),
-      UResponseTask::PRETASK_PMSN_COUNT => $pretask->getPmsnCount(),
-      UResponseTask::PRETASK_PMSN_ADR => $pretask->getPmsnAdr(),
-      UResponseTask::PRETASK_PERCENT => $pretask->getPercent(),
-      UResponseTask::PRETASK_CHUNK_SIZE => $pretask->getChunkSize(),
-      UResponseTask::PRETASK_BENCHMARK_TYPE => $pretask->getBenchMarkType(),
-      UResponseTask::PRETASK_SKIP_KEYSPACE => $pretask->getSkipKeyspace(),
-      UResponseTask::PRETASK_KEYSPACE => $pretask->getKeyspace(),
-      UResponseTask::PRETASK_DISPATCHED => $pretask->getDispatched(),
-      UResponseTask::PRETASK_HASHLIST_ID => $pretask->getHashlistId(),
-      UResponseTask::PRETASK_FILES => $pretask->getFiles(),
-      UResponseTask::PRETASK_SPEED => $pretask->getSpeed(),
-      UResponseTask::PRETASK_SEARCHED => $pretask->getSearched(),
-      UResponseTask::PRETASK_CHUNKIDS => $pretask->getChunkIds(),
-      UResponseTask::PRETASK_AGENTS => $pretask->getAgents(),
-      UResponseTask::PRETASK_IS_COMPLETE => $pretask->getIsComplete(),
-      UResponseTask::PRETASK_PREPROCESSOR_SPEED => $pretask->getPreprocessorSpeed(),
-      UResponseTask::PRETASK_HASHLIST => $pretask->getHashlist(),
-      UResponseTask::PRETASK_IMAGE => $pretask->getImage(),
-      UResponseTask::PRETASK_AGENTS_ID => $pretask->getAgentsId(),
-      UResponseTask::PRETASK_AGENTS_BENCHMARK => $pretask->getAgentsBenchmark(),
-      UResponseTask::PRETASK_AGENTS_SPEED => $pretask->getAgentsSpeed(),
-      UResponseTask::PRETASK_CHUNKS => $pretask->getChunks(),
-      UResponseTask::PRETASK_USE_PREPROCESSOR => $pretask->getUsePreprocessor(),
-      UResponseTask::PRETASK_PREPROCESSOR_ID => $pretask->getPreprocessorId(),
-      UResponseTask::PRETASK_PREPROCESSOR_COMMAND => $pretask->getPreprocessorCommand(),
-      UResponseTask::PRETASK_SKIP => $pretask->getSkip(),
-      UResponseTask::PRETASK_ALGORITHM_CODE => $pretask->getAlgorithmCode(),
-      UResponseTask::PRETASK_RESULT => $pretask->getResult(),
-      UResponseTask::PRETASK_ACTUAL_PMSN => $pretask->getActualPmsn()
+      UResponseTask::CREATE_TIME => $pretask->getCreateTime(),
+      UResponseTask::END_TIME => $pretask->getEndTime(),
+      UResponseTask::CUR_SBIS_COUNT => $pretask->getCurSbisCount(),
+      UResponseTask::SBIS_COUNT => $pretask->getSbisCount(),
+      UResponseTask::HASH_LIST_ID => $pretask->getHashlistId(),
+      UResponseTask::ALGORITHM_CODE => $pretask->getAlgorithmCode(),
+      UResponseTask::isComplete => $pretask->getCompleteStatus(),
+      UResponseTask::PERCENT => $pretask->getPercent()
     ];
     
     $files = TaskUtils::getFilesOfPretask($pretask);

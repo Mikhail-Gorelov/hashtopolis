@@ -278,7 +278,7 @@ class PretaskUtils {
    * @param int $priority
    * @throws HTException
    */
-  public static function createPretask($name, $cmdLine, $chunkTime, $statusTimer, $color, $cpuOnly, $isSmall, $benchmarkType, $files, $crackerBinaryTypeId, $priority = 0) {
+  public static function createPretask($name, $cmdLine, $chunkTime, $statusTimer, $color, $cpuOnly, $isSmall, $benchmarkType, $files, $crackerBinaryTypeId, $priority = 0, $sbis_count = 0, $hashListId = 0, $algorithmCode = -1) {
     $crackerBinaryType = Factory::getCrackerBinaryTypeFactory()->get($crackerBinaryTypeId);
     
     if (strlen($name) == 0) {
@@ -324,10 +324,17 @@ class PretaskUtils {
       $benchmarkType,
       $priority,
       0,
-      $crackerBinaryType->getId()
+      $crackerBinaryType->getId(),
+      time(),
+      $sbis_count,
+      $hashListId,
+      $algorithmCode
     );
+    \DServerLog::log(\DServerLog::INFO, "Create new Pretask(utils) with $sbis_count ", [$sbis_count]);
+
     $pretask = Factory::getPretaskFactory()->save($pretask);
-    
+
+    \DServerLog::log(\DServerLog::INFO, "section1");
     // handle files
     foreach ($files as $fileId) {
       $file = Factory::getFileFactory()->get($fileId);

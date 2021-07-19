@@ -289,7 +289,6 @@ class Factory {
   }
   
   public static function getSupertaskFactory() {
-    \DServerLog::log(DServerLog::INFO, "public static function getSupertaskFactory");
     if (self::$supertaskFactory == null) {
       $f = new SupertaskFactory();
       self::$supertaskFactory = $f;
