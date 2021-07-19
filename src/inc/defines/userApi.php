@@ -263,12 +263,16 @@ class UResponseTask extends UResponse {
   const SBIS_COUNT                = "sbis_count";
   
   const SUBTASKS = "subtasks";
-  
+
   const PRETASKS          = "pretasks";
   const PRETASKS_ID       = "pretaskId";
+  const PRETASKS_SUPERTASK_ID = "supertaskId";
   const PRETASKS_NAME     = "name";
+  const PRETASKS_TYPE     = "type";
+  const PRETASKS_HASHLIST     = "hashlistId";
   const PRETASKS_PRIORITY = "priority";
-  
+  const PRETASKS_IS_COMPLETE  = "isComplete";
+
   const PRETASK_ID         = "pretaskId";
   const PRETASK_NAME       = "name";
   const PRETASK_ATTACK     = "attackCmd";
@@ -283,6 +287,36 @@ class UResponseTask extends UResponse {
   const PRETASK_FILES_ID   = "fileId";
   const PRETASK_FILES_NAME = "filename";
   const PRETASK_FILES_SIZE = "size";
+  const PRETASK_SKIP                 = "skipKeyspace";
+  const PRETASK_KEYSPACE             = "keyspace";
+  const PRETASK_DISPATCHED           = "dispatched";
+  const PRETASK_SEARCHED             = "searched";
+  const PRETASK_SPEED                = "speed";
+  const PRETASK_HASHLIST             = "hashlistId";
+  const PRETASK_IMAGE                = "imageUrl";
+  const PRETASK_AGENTS               = "agents";
+  const PRETASK_AGENTS_ID            = "agentId";
+  const PRETASK_AGENTS_BENCHMARK     = "benchmark";
+  const PRETASK_AGENTS_SPEED         = "speed";
+  const PRETASK_CHUNKS               = "chunkIds";
+  const PRETASK_USE_PREPROCESSOR     = "usePreprocessor";
+  const PRETASK_PREPROCESSOR_SPEED     = "preprocessor_speed";
+  const PRETASK_PREPROCESSOR_ID      = "preprocessorId";
+  const PRETASK_ALGORITHM_CODE = "algorithm_code";
+  const PRETASK_RESULT = "result";
+  const PRETASK_ACTUAL_PMSN = "actual_pmsn";
+  const PRETASK_PREPROCESSOR_COMMAND = "preprocessorCommand";
+  const PRETASK_CREATE_TIME               = "create_time";
+  const PRETASK_END_TIME = "end_time";
+  const PRETASK_PMSN_COUNT = "pmsn_count";
+  const PRETASK_PMSN_ADR = "pmsn_adr";
+  const PRETASK_PERCENT = "percent";
+  const PRETASK_CHUNK_SIZE = "chunk_size";
+  const PRETASK_BENCHMARK_TYPE = "benchmk_type";
+  const PRETASK_SKIP_KEYSPACE = "send_keyspace";
+  const PRETASK_HASHLIST_ID = "hashlist_id";
+  const PRETASK_CHUNKIDS = "chunk_ids";
+  const PRETASK_IS_COMPLETE = "is_complete";
   
   const SUPERTASKS      = "supertasks";
   const SUPERTASKS_ID   = "supertaskId";
