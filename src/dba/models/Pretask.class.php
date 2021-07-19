@@ -148,7 +148,7 @@ class Pretask extends AbstractModel {
       $dict['result'] = $this->result;
       $dict['actual_pmsn'] = $this->actual_pmsn;
 
-    return $dict;
+      return $dict;
   }
 
     function getAlgorithmCode() {
