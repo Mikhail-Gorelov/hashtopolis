@@ -247,7 +247,9 @@ class UserAPIPretask extends UserAPIBasic {
    * @param array $QUERY
    */
   private function listPreTasks($QUERY) {
+    \DServerLog::log(\DServerLog::INFO, "List: PretaskUtils::getPretasks IN ");
     $pretasks = PretaskUtils::getPretasks(false);
+    \DServerLog::log(\DServerLog::INFO, "List: PretaskUtils::getPretasks OUT ");
     $taskList = array();
     $response = [
       UResponseTask::SECTION => $QUERY[UQueryTask::SECTION],
@@ -273,6 +275,8 @@ class UserAPIPretask extends UserAPIBasic {
       ];
     }
     $response[UResponseTask::PRETASKS] = $taskList;
+    \DServerLog::log(\DServerLog::INFO, "this->sendResponse(response) IN ");
     $this->sendResponse($response);
+    \DServerLog::log(\DServerLog::INFO, "this->sendResponse(response) OUT ");
   }
 }
