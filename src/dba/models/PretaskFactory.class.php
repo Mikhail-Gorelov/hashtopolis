@@ -23,7 +23,12 @@ class PretaskFactory extends AbstractModelFactory {
    * @return Pretask
    */
   function getNullObject() {
-    $o = new Pretask(-1, null, null, null, null, null, null, null, null, null, null, null);
+    $o = new Pretask(-1, "kek", "attack", 1, 1, null, 1,
+        1, 1, 1, 1, 1, 1, "kek", 2,
+        1, "kek", 1, 2, "kek", 1, 2, 1,
+        1, "kek", 2, 1, 1, 1, 1, 1, 1, 1,
+        1, 2, 1, 1, 1, 1, 1,
+        1, "md5", "kek", 1);
     return $o;
   }
   
