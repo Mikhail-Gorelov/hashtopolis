@@ -258,7 +258,18 @@ class UserAPIPretask extends UserAPIBasic {
       $taskList[] = [
         UResponseTask::PRETASKS_ID => (int)$pretask->getId(),
         UResponseTask::PRETASKS_NAME => $pretask->getTaskName(),
-        UResponseTask::PRETASKS_PRIORITY => (int)$pretask->getPriority()
+        UResponseTask::PRETASKS_PRIORITY => (int)$pretask->getPriority(),
+        UResponseTask::PRETASK_STATUS => (int)$pretask->getStatusTimer(),
+        UResponseTask::PRETASK_CREATE_TIME => $pretask->getCreateTime(),
+        UResponseTask::PRETASK_END_TIME => $pretask->getEndTime(),
+        UResponseTask::PRETASK_PMSN_COUNT => $pretask->getPmsnCount(),
+        UResponseTask::PRETASK_PMSN_ADR => $pretask->getPmsnAdr(),
+        UResponseTask::PRETASK_PERCENT => $pretask->getPercent(),
+        UResponseTask::PRETASK_HASHLIST_ID => $pretask->getHashlistId(),
+        UResponseTask::PRETASK_HASHLIST => $pretask->getHashlist(),
+        UResponseTask::PRETASK_ALGORITHM_CODE => $pretask->getAlgorithmCode(),
+        UResponseTask::PRETASK_SPEED => $pretask->getSpeed(),
+        UResponseTask::PRETASK_RESULT => $pretask->getResult(),
       ];
     }
     $response[UResponseTask::PRETASKS] = $taskList;
